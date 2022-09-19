@@ -1,0 +1,17 @@
+CC=gcc
+DEBUG = -g
+CFLAGS = -Wall -std=c99 -pedantic -c -O0 $(DEBUG)
+LFLAGS = -Wall -std=c99 -pedantic $(DEBUG)
+
+all: ppmrw
+
+ALL: all
+
+ppmrw: PPM.o
+	$(CC) $(LFLAGS) PPM.o -o ppmrw
+
+PPM.o:
+	$(CC) $(CFLAGS) $(DEBUG) PPM.c
+
+clean:
+	rm -f *.o ppmrw
